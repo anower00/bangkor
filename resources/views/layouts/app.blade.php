@@ -31,19 +31,23 @@
 <body>
     <div id="app">
         <div class="wrapper ">
-            @include('layouts.partial.sidebar')
+            @if(Request::is('admin*'))
+                @include('layouts.partial.sidebar')
+            @endif
             <div class="main-panel">
                 <!-- Navbar -->
-                    @include('layouts.partial.topbar')
-                <!-- End Navbar -->
-                         @yield('content')
+            @if(Request::is('admin*'))
+                @include('layouts.partial.topbar')
+            @endif
+            <!-- End Navbar -->
+                @yield('content')
+
+                @if(Request::is('admin*'))
                     @include('layouts.partial.footer')
+                @endif
             </div>
         </div>
 
-        {{--<main class="py-4">
-            @yield('content')
-        </main>--}}
     </div>
 
     <!--   Core JS Files   -->
