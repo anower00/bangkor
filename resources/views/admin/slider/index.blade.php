@@ -64,6 +64,9 @@
                     <div class="modal fade" id="sliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
+                                <div class="alert alert-danger" style="display:none"></div>
+                                <div class="alert alert-success" style="display:none"></div>
+                                <p id="myElem" style="display:none">Saved</p>
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Create Slider</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -85,17 +88,19 @@
                                             <label>Description:</label>
                                             <input type="text" class="form-control" name="description" id="description">
                                         </div>
-                                        {{--<div class="row">
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <label class="bmd-label-floating">Image</label><br>
-                                                <input type="file" name="image" id="image">
+                                                <input type="file" name="simage" id="simage">
                                             </div>
-                                        </div>--}}
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary" id="sliderSubmit">Save</button>
+
                                     </div>
+                                    <div class="output_results"></div>
                                 </form>
                             </div>
                         </div>
@@ -108,8 +113,9 @@
     @endsection
 
 @push('scripts')
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
+
     {{--data table js start--}}
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
@@ -140,9 +146,13 @@
                     title: jQuery('#title').val(),
                     sub_title: jQuery('#sub_title').val(),
                     description: jQuery('#description').val(),
-
+                    simage: jQuery('#simage').val(),
             },
+
             success: function(result){
+
+                    $(".output_results").html(result);
+
                     if(result.errors)
                     {
                     jQuery('.alert-danger').html('');
@@ -153,11 +163,13 @@
                     });
                     }
             else{
-                    jQuery('.alert-danger').hide();
-                    $('#open').hide();
-                    $('#sliderModal').modal('hide');
+                        jQuery('.alert-danger').hide();
+                        jQuery('.alert-success').html('');
+                        $(".output_results").html(result);
+
                     }
                 }});
+
             });
         });
     </script>

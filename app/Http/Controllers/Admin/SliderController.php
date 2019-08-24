@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Slider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \Validator;
@@ -17,7 +18,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('id', 'DESC')->get();
 
         return view('admin.slider.index',compact('sliders'));
     }
@@ -40,6 +41,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = \Validator::make($request->all(), [
             'title' => 'required',
             'sub_title' => 'required',
@@ -50,13 +52,36 @@ class SliderController extends Controller
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-        $sliders= new Slider();
-        $sliders->title =$request->get('title');
-        $sliders->sub_title =$request->get('sub_title');
-        $sliders->description =$request->get('description');
-        $sliders->save();
 
-        return response()->json(['success'=>'Slider is successfully added']);
+        $image = $request->file('simage');
+
+        //slug used for video title start in title name
+        $slug = str_slug($request->title);
+        if (isset($image)) {
+            $currentDate = Carbon::now()->toDateString();
+            //in video title at first show slug then current date
+            $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            //if folder exist then save other wise create video folder via mkdir
+            if (!file_exists('slider')) {
+                mkdir('slider', 0777, true);
+            }
+            $image->move('slider', $imagename);
+        }
+        else{
+            $imagename = "an.jpg";
+        }
+
+//        dd($imagename);
+            $sliders= new Slider();
+            $sliders->title =$request->get('title');
+            $sliders->sub_title =$request->get('sub_title');
+            $sliders->description =$request->get('description');
+            $sliders->image = $imagename;
+            $sliders->save();
+
+
+        echo " <span class='alert alert-success'> post published successfully </span>";
+//        return response()->json(['success'=>'Slider is successfully added']);
     }
 
     /**

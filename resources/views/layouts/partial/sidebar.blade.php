@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -36,31 +36,31 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
+                <a class="nav-link" href="">
                     <i class="material-icons">bubble_chart</i>
                     <p>Icons</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./map.html">
+                <a class="nav-link" href="">
                     <i class="material-icons">location_ons</i>
                     <p>Maps</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
+                <a class="nav-link" href="">
                     <i class="material-icons">notifications</i>
                     <p>Notifications</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./rtl.html">
+                <a class="nav-link" href="">
                     <i class="material-icons">language</i>
                     <p>RTL Support</p>
                 </a>
             </li>
             <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
+                <a class="nav-link" href="">
                     <i class="material-icons">unarchive</i>
                     <p>Upgrade to PRO</p>
                 </a>
