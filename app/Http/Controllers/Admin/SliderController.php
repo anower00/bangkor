@@ -6,7 +6,8 @@ use App\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use \Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class SliderController extends Controller
@@ -42,46 +43,39 @@ class SliderController extends Controller
     public function store(Request $request)
     {
 
-        $validator = \Validator::make($request->all(), [
-            'title' => 'required',
-            'sub_title' => 'required',
-            'description' => 'required',
+        $validation = Validator::make($request->all(), [
+            'slider' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-
-        if ($validator->fails())
+        if($validation->passes())
         {
-            return response()->json(['errors'=>$validator->errors()->all()]);
-        }
+            $image = $request->file('slider');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('slider'), $new_name);
 
-        $image = $request->file('simage');
-
-        //slug used for video title start in title name
-        $slug = str_slug($request->title);
-        if (isset($image)) {
-            $currentDate = Carbon::now()->toDateString();
-            //in video title at first show slug then current date
-            $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-            //if folder exist then save other wise create video folder via mkdir
-            if (!file_exists('slider')) {
-                mkdir('slider', 0777, true);
-            }
-            $image->move('slider', $imagename);
-        }
-        else{
-            $imagename = "an.jpg";
-        }
-
-//        dd($imagename);
             $sliders= new Slider();
             $sliders->title =$request->get('title');
             $sliders->sub_title =$request->get('sub_title');
             $sliders->description =$request->get('description');
-            $sliders->image = $imagename;
+            $sliders->image = $new_name;
             $sliders->save();
 
+            return response()->json([
+                'message'   => 'Image Upload Successfully',
+//                'uploaded_image' => '<img src="/slider/'.$new_name.'" class="img-thumbnail" width="300" />',
+                'class_name'  => 'alert-success'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'message'   => $validation->errors()->all(),
+                'uploaded_image' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
 
-        echo " <span class='alert alert-success'> post published successfully </span>";
-//        return response()->json(['success'=>'Slider is successfully added']);
+
+
     }
 
     /**

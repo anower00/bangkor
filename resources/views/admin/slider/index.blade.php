@@ -45,7 +45,7 @@
                                         <td>{{ $slider->title }}</td>
                                         <td>{{ $slider->sub_title }}</td>
                                         <td>{{ $slider->description }}</td>
-                                        <td>{{ $slider->image }}</td>
+                                        <td><img src="{{ asset('slider/' . $slider->image) }}" style="height: 100px; width: 200px"></td>
                                         <td>{{ $slider->created_at }}</td>
                                         <td>{{ $slider->updated_at }}</td>
                                         <td>
@@ -64,8 +64,7 @@
                     <div class="modal fade" id="sliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="alert alert-danger" style="display:none"></div>
-                                <div class="alert alert-success" style="display:none"></div>
+                                <div class="alert" id="message" style="display: none"></div>
                                 <p id="myElem" style="display:none">Saved</p>
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Create Slider</h5>
@@ -73,7 +72,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" action="{{ route('slider.store') }}" id="addForm" enctype="multipart/form-data">
+                                <form method="post" action="{{ route('slider.store') }}" id="upload_form" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="form-group">
@@ -91,16 +90,16 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label class="bmd-label-floating">Image</label><br>
-                                                <input type="file" name="simage" id="simage">
+                                                <input type="file" name="slider" id="slider">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" id="sliderSubmit">Save</button>
+                                        <button type="submit" class="btn btn-primary" id="upload" name="upload">Save</button>
 
                                     </div>
-                                    <div class="output_results"></div>
+                                    <span id="uploaded_image"></span>
                                 </form>
                             </div>
                         </div>
@@ -128,49 +127,29 @@
 {{--data table js end--}}
 
     <script>
-        jQuery(document).ready(function(){
-            jQuery('#sliderSubmit').click(function(e){
-                e.preventDefault();
-                $.ajaxSetup({
-                    beforeSend: function(xhr, type) {
-                        if (!type.crossDomain) {
-                            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                        }
-                    },
-                });
+        $(document).ready(function(){
 
-            jQuery.ajax({
-                url: "{{ route('slider.store') }}",
-                method: 'post',
-                data: {
-                    title: jQuery('#title').val(),
-                    sub_title: jQuery('#sub_title').val(),
-                    description: jQuery('#description').val(),
-                    simage: jQuery('#simage').val(),
-            },
-
-            success: function(result){
-
-                    $(".output_results").html(result);
-
-                    if(result.errors)
+            $('#upload_form').on('submit', function(event){
+                event.preventDefault();
+                $.ajax({
+                    url:"{{ route('slider.store') }}",
+                    method:"POST",
+                    data:new FormData(this),
+                    dataType:'JSON',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
                     {
-                    jQuery('.alert-danger').html('');
-
-                    jQuery.each(result.errors, function(key, value){
-                    jQuery('.alert-danger').show();
-                    jQuery('.alert-danger').append('<li>'+value+'</li>');
-                    });
-                    }
-            else{
-                        jQuery('.alert-danger').hide();
-                        jQuery('.alert-success').html('');
-                        $(".output_results").html(result);
+                        $('#message').css('display', 'block');
+                        $('#message').html(data.message);
+                        $('#message').addClass(data.class_name);
+                        $('#uploaded_image').html(data.uploaded_image);
 
                     }
-                }});
-
+                })
             });
+
         });
     </script>
 @endpush
