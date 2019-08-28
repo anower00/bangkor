@@ -15,6 +15,7 @@
 
                     {{--<a href="{{ route('slider.create') }}" class="btn btn-primary">Create</a>--}}
 
+
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sliderModal" id="open">
                         Add Slider
                     </button>
@@ -25,7 +26,7 @@
                             <h4 class="card-title ">All Slider</h4>
                             {{--<p class="card-category"> Here is a subtitle for this table</p>--}}
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" id="showAllDataHere">
                             <div class="table-responsive">
                                 <table id="table" class="table table-striped table-bordered" style="width:100%">
                                     <thead class=" text-primary">
@@ -59,7 +60,10 @@
                             </div>
                         </div>
                     </div>
+{{--get slider--}}
 
+ <div id="getdata" data-url="{{ url('slider/data') }}"></div>
+  <span onload="getslider()"></span>
                     <!--Add slider Modal -->
                     <div class="modal fade" id="sliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -146,10 +150,47 @@
                         $('#message').addClass(data.class_name);
                         $('#uploaded_image').html(data.uploaded_image);
 
+                        return getslider();
+
                     }
                 })
             });
 
         });
+
+        
+        function getslider() {
+
+            var url = $("#getdata").data("url");
+
+            console.log(url);
+
+             $.ajax({
+                 url: url,
+                 type: "get",
+                 dataType: "JSON",
+                 success:function (response) {
+                     console.log(response);
+                     // $("#showAllDataHere").html(response);
+                     var res='';
+                     $.each (response, function (key, value) {
+                         res +=
+                             '<tr>'+
+                             '<td>'+value.id+'</td>'+
+                             '<td>'+value.title+'</td>'+
+                             '<td>'+value.sub_title+'</td>'+
+                             '<td>'+value.description+'</td>'+
+                             '<td>'+value.image+'</td>'+
+                             '<td>'+value.created_at+'</td>'+
+                             '<td>'+value.updated_at+'</td>'+
+                             '</tr>';
+
+                     });
+
+                     $('tbody').html(res);
+
+                 }
+             });
+        }
     </script>
 @endpush

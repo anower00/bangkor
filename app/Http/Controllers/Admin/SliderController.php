@@ -122,4 +122,11 @@ class SliderController extends Controller
     {
         //
     }
+
+    public function getSlider()
+    {
+        $sliders = Slider::orderBy('id', 'DESC')->get();
+
+        return $sliders;
+    }
 }
