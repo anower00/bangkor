@@ -19,11 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('slider/data' , 'Admin\SliderController@getSlider')->name('slider.get');
+//Route::post('ajax-crud/update', 'AjaxCrudController@update')->name('ajax-crud.update');
+Route::post('allSlider/update', 'SliderController@slupdate')->name('allSlider.update');
+
+//Route::get('slider/data' , 'Admin\SliderController@getSlider')->name('slider.get');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],function (){
 
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
     Route::resource('slider' , 'SliderController');
+
 
 });

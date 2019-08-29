@@ -19,9 +19,23 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::orderBy('id', 'DESC')->get();
+        if(request()->ajax())
+        {
+            return datatables()->of(Slider::latest()->get())
+                ->addColumn('action', function($data){
+                    $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
+                    $button .= '&nbsp;&nbsp;';
+                    $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</button>';
+                    return $button;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('admin.slider.index');
 
-        return view('admin.slider.index',compact('sliders'));
+//        $sliders = Slider::orderBy('id', 'DESC')->get();
+
+//        return view('admin.slider.index',compact('sliders'));
     }
 
     /**
@@ -42,39 +56,36 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = array(
+            'title'    =>  'required',
+            'sub_title'     =>  'required',
+            'description'     =>  'required',
+            'image'         =>  'required|image|max:2048'
+        );
 
-        $validation = Validator::make($request->all(), [
-            'slider' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-        ]);
-        if($validation->passes())
+        $error = Validator::make($request->all(), $rules);
+
+        if($error->fails())
         {
-            $image = $request->file('slider');
-            $new_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('slider'), $new_name);
-
-            $sliders= new Slider();
-            $sliders->title =$request->get('title');
-            $sliders->sub_title =$request->get('sub_title');
-            $sliders->description =$request->get('description');
-            $sliders->image = $new_name;
-            $sliders->save();
-
-            return response()->json([
-                'message'   => 'Image Upload Successfully',
-//                'uploaded_image' => '<img src="/slider/'.$new_name.'" class="img-thumbnail" width="300" />',
-                'class_name'  => 'alert-success'
-            ]);
-        }
-        else
-        {
-            return response()->json([
-                'message'   => $validation->errors()->all(),
-                'uploaded_image' => '',
-                'class_name'  => 'alert-danger'
-            ]);
+            return response()->json(['errors' => $error->errors()->all()]);
         }
 
+        $image = $request->file('image');
 
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+
+        $image->move(public_path('slider'), $new_name);
+
+        $form_data = array(
+            'title'        =>  $request->title,
+            'sub_title'        =>  $request->sub_title,
+            'description'         =>  $request->description,
+            'image'             =>  $new_name
+        );
+
+        Slider::create($form_data);
+
+        return response()->json(['success' => 'Slider Added successfully.']);
 
     }
 
@@ -97,7 +108,11 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(request()->ajax())
+        {
+            $data = Slider::findOrFail($id);
+            return response()->json(['data' => $data]);
+        }
     }
 
     /**
@@ -107,9 +122,53 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function slupdate(Request $request)
     {
-        //
+        $image_name = $request->hidden_image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $rules = array(
+                'title'    =>  'required',
+                'sub_title'     =>  'required',
+                'description'     =>  'required',
+                'image'         =>  'image|max:2048'
+            );
+            $error = Validator::make($request->all(), $rules);
+            if($error->fails())
+            {
+                return response()->json(['errors' => $error->errors()->all()]);
+            }
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+        }
+        else
+        {
+            $rules = array(
+                'title'    =>  'required',
+                'sub_title'     =>  'required',
+                'description'     =>  'required'
+            );
+
+            $error = Validator::make($request->all(), $rules);
+
+            if($error->fails())
+            {
+                return response()->json(['errors' => $error->errors()->all()]);
+            }
+        }
+
+        $form_data = array(
+            'first_name'       =>   $request->first_name,
+            'last_name'        =>   $request->last_name,
+            'description'         =>  $request->description,
+            'image'            =>   $image_name
+        );
+
+        Slider::whereId($request->hidden_id)->update($form_data);
+
+        return response()->json(['success' => 'Data is successfully updated']);
     }
 
     /**

@@ -8,107 +8,75 @@
 @endpush
 
 @section('content')
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
+    <div class="container">
+        <br />
+        <h3 align="center">Slider</h3>
+        <br />
+        <div align="right">
+            <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Record</button>
+        </div>
+        <br />
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="user_table">
+                <thead>
+                <tr>
+                    <th width="10%">Image</th>
+                    <th width="35%">Title</th>
+                    <th width="35%">Sub Title</th>
+                    <th width="35%">Description</th>
+                    <th width="30%">Action</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <br />
+        <br />
+    </div>
 
-                    {{--<a href="{{ route('slider.create') }}" class="btn btn-primary">Create</a>--}}
 
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sliderModal" id="open">
-                        Add Slider
-                    </button>
-
-
-                    <div class="card">
-                        <div class="card-header card-header-primary">
-                            <h4 class="card-title ">All Slider</h4>
-                            {{--<p class="card-category"> Here is a subtitle for this table</p>--}}
-                        </div>
-                        <div class="card-body" id="showAllDataHere">
-                            <div class="table-responsive">
-                                <table id="table" class="table table-striped table-bordered" style="width:100%">
-                                    <thead class=" text-primary">
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Sub Title</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Created At</th>
-                                        <th>Updated At</th>
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                    @foreach( $sliders as $key=>$slider)
-                                    <tr>
-                                        <td>{{ $key+1 }}</td>
-                                        <td>{{ $slider->title }}</td>
-                                        <td>{{ $slider->sub_title }}</td>
-                                        <td>{{ $slider->description }}</td>
-                                        <td><img src="{{ asset('slider/' . $slider->image) }}" style="height: 100px; width: 200px"></td>
-                                        <td>{{ $slider->created_at }}</td>
-                                        <td>{{ $slider->updated_at }}</td>
-                                        <td>
-                                            <a href="">Edit</a>
-                                            <a href="">Delete</a>
-                                        </td>
-                                    </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+    <div id="formModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Record</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="form_result"></span>
+                    <form method="post" id="sample_form" class="form-horizontal" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label class="control-label col-md-4" >Title : </label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" id="title" class="form-control" />
                             </div>
                         </div>
-                    </div>
-{{--get slider--}}
-
- <div id="getdata" data-url="{{ url('slider/data') }}"></div>
-  <span onload="getslider()"></span>
-                    <!--Add slider Modal -->
-                    <div class="modal fade" id="sliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="alert" id="message" style="display: none"></div>
-                                <p id="myElem" style="display:none">Saved</p>
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Create Slider</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form method="post" action="{{ route('slider.store') }}" id="upload_form" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Title:</label>
-                                            <input type="text" class="form-control" name="title" id="title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Sub Title:</label>
-                                            <input type="text" class="form-control" name="sub_title" id="sub_title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Description:</label>
-                                            <input type="text" class="form-control" name="description" id="description">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <label class="bmd-label-floating">Image</label><br>
-                                                <input type="file" name="slider" id="slider">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" id="upload" name="upload">Save</button>
-
-                                    </div>
-                                    <span id="uploaded_image"></span>
-                                </form>
+                        <div class="form-group">
+                            <label class="control-label col-md-4" >Sub Title : </label>
+                            <div class="col-md-8">
+                                <input type="text" name="sub_title" id="sub_title" class="form-control" />
                             </div>
                         </div>
-                    </div>
-                    {{--slider modal end--}}
+                        <div class="form-group">
+                            <label class="control-label col-md-4" >Description : </label>
+                            <div class="col-md-8">
+                                <input type="text" name="description" id="description" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="control-label col-md-4">Select Profile Image : </label>
+                            <div class="col-md-8">
+                                <input type="file" name="image" id="image" />
+                                <span id="store_image"></span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group" align="center">
+                            <input type="hidden" name="action" id="action" />
+                            <input type="hidden" name="hidden_id" id="hidden_id" />
+                            <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -122,7 +90,6 @@
     {{--data table js start--}}
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
     <script>
         $(document).ready(function() {
             $('#table').DataTable();
@@ -133,64 +100,165 @@
     <script>
         $(document).ready(function(){
 
-            $('#upload_form').on('submit', function(event){
+            $('#user_table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url: "{{ route('slider.index') }}",
+                },
+                columns:[
+                    {
+                        data: 'image',
+                        name: 'image',
+                        render: function(data, type, full, meta){
+                            return "<img src={{ URL::to('/') }}/slider/" + data + " width='70' class='img-thumbnail' />";
+                        },
+                        orderable: false
+                    },
+                    {
+                        data: 'title',
+                        name: 'title'
+                    },
+                    {
+                        data: 'sub_title',
+                        name: 'sub_title'
+                    },
+
+                    {
+                        data: 'description',
+                        name: 'description'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false
+                    }
+                ]
+            });
+
+            $('#create_record').click(function(){
+                $('.modal-title').text("Add New Record");
+                $('#action_button').val("Add");
+                $('#action').val("Add");
+                $('#formModal').modal('show');
+            });
+
+            $('#sample_form').on('submit', function(event){
                 event.preventDefault();
+                if($('#action').val() == 'Add')
+                {
+                    $.ajax({
+                        url:"{{ route('slider.store') }}",
+                        method:"POST",
+                        data: new FormData(this),
+                        contentType: false,
+                        cache:false,
+                        processData: false,
+                        dataType:"json",
+                        success:function(data)
+                        {
+                            var html = '';
+                            if(data.errors)
+                            {
+                                html = '<div class="alert alert-danger">';
+                                for(var count = 0; count < data.errors.length; count++)
+                                {
+                                    html += '<p>' + data.errors[count] + '</p>';
+                                }
+                                html += '</div>';
+                            }
+                            if(data.success)
+                            {
+                                html = '<div class="alert alert-success">' + data.success + '</div>';
+                                $('#sample_form')[0].reset();
+                                $('#user_table').DataTable().ajax.reload();
+                            }
+                            $('#form_result').html(html);
+                        }
+                    })
+                }
+
+                if($('#action').val() == "Edit")
+                {
+                    $.ajax({
+                        url:"{{ route('allSlider.update') }}",
+                        method:"POST",
+                        data:new FormData(this),
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        dataType:"json",
+                        success:function(data)
+                        {
+                            var html = '';
+                            if(data.errors)
+                            {
+                                html = '<div class="alert alert-danger">';
+                                for(var count = 0; count < data.errors.length; count++)
+                                {
+                                    html += '<p>' + data.errors[count] + '</p>';
+                                }
+                                html += '</div>';
+                            }
+                            if(data.success)
+                            {
+                                html = '<div class="alert alert-success">' + data.success + '</div>';
+                                $('#sample_form')[0].reset();
+                                $('#store_image').html('');
+                                $('#user_table').DataTable().ajax.reload();
+
+                            }
+                            $('#form_result').html(html);
+                        }
+                    });
+                }
+
+            });
+
+            $(document).on('click', '.edit', function(){
+                var id = $(this).attr('id');
+                $('#form_result').html('');
                 $.ajax({
-                    url:"{{ route('slider.store') }}",
-                    method:"POST",
-                    data:new FormData(this),
-                    dataType:'JSON',
-                    contentType: false,
-                    cache: false,
-                    processData: false,
+                    url:"/bangkorpulp/public/admin/slider/"+id+"/edit",
+                    dataType:"json",
+                    success:function(html){
+                        $('#title').val(html.data.title);
+                        $('#sub_title').val(html.data.sub_title);
+                        $('#description').val(html.data.description);
+                        $('#store_image').html("<img src={{ URL::to('/') }}/slider/" + html.data.image + " width='70' class='img-thumbnail' />");
+                        $('#store_image').append("<input type='hidden' name='hidden_image' value='"+html.data.image+"' />");
+                        $('#hidden_id').val(html.data.id);
+                        $('.modal-title').text("Edit New Record");
+                        $('#action_button').val("Edit");
+                        $('#action').val("Edit");
+                        $('#formModal').modal('show');
+                    }
+                })
+            });
+
+            var user_id;
+
+            $(document).on('click', '.delete', function(){
+                user_id = $(this).attr('id');
+                $('#confirmModal').modal('show');
+            });
+
+            $('#ok_button').click(function(){
+                $.ajax({
+                    url:"ajax-crud/destroy/"+user_id,
+                    beforeSend:function(){
+                        $('#ok_button').text('Deleting...');
+                    },
                     success:function(data)
                     {
-                        $('#message').css('display', 'block');
-                        $('#message').html(data.message);
-                        $('#message').addClass(data.class_name);
-                        $('#uploaded_image').html(data.uploaded_image);
-
-                        return getslider();
-
+                        setTimeout(function(){
+                            $('#confirmModal').modal('hide');
+                            $('#user_table').DataTable().ajax.reload();
+                        }, 2000);
                     }
                 })
             });
 
         });
-
-        
-        function getslider() {
-
-            var url = $("#getdata").data("url");
-
-            console.log(url);
-
-             $.ajax({
-                 url: url,
-                 type: "get",
-                 dataType: "JSON",
-                 success:function (response) {
-                     console.log(response);
-                     // $("#showAllDataHere").html(response);
-                     var res='';
-                     $.each (response, function (key, value) {
-                         res +=
-                             '<tr>'+
-                             '<td>'+value.id+'</td>'+
-                             '<td>'+value.title+'</td>'+
-                             '<td>'+value.sub_title+'</td>'+
-                             '<td>'+value.description+'</td>'+
-                             '<td>'+value.image+'</td>'+
-                             '<td>'+value.created_at+'</td>'+
-                             '<td>'+value.updated_at+'</td>'+
-                             '</tr>';
-
-                     });
-
-                     $('tbody').html(res);
-
-                 }
-             });
-        }
     </script>
 @endpush
