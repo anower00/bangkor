@@ -141,7 +141,7 @@ class SliderController extends Controller
             }
 
             $image_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
+            $image->move(public_path('slider'), $image_name);
         }
         else
         {
@@ -160,8 +160,8 @@ class SliderController extends Controller
         }
 
         $form_data = array(
-            'first_name'       =>   $request->first_name,
-            'last_name'        =>   $request->last_name,
+            'title'       =>   $request->title,
+            'sub_title'        =>   $request->sub_title,
             'description'         =>  $request->description,
             'image'            =>   $image_name
         );
@@ -179,13 +179,15 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Slider::findOrFail($id);
+
+        $data->delete();
     }
 
-    public function getSlider()
+    /*public function getSlider()
     {
         $sliders = Slider::orderBy('id', 'DESC')->get();
 
         return $sliders;
-    }
+    }*/
 }

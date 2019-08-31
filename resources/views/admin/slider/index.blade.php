@@ -181,7 +181,7 @@
                 if($('#action').val() == "Edit")
                 {
                     $.ajax({
-                        url:"{{ route('allSlider.update') }}",
+                        url:"allSlider/update",
                         method:"POST",
                         data:new FormData(this),
                         contentType: false,
@@ -245,7 +245,7 @@
 
             $('#ok_button').click(function(){
                 $.ajax({
-                    url:"ajax-crud/destroy/"+user_id,
+                    url:"allSlider/destroy/"+user_id,
                     beforeSend:function(){
                         $('#ok_button').text('Deleting...');
                     },
