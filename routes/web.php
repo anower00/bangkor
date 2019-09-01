@@ -21,7 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('ajax-crud/update', 'AjaxCrudController@update')->name('ajax-crud.update');
 
-Route::get('allSlider/destroy/{id}', 'SliderController@destroy');
 
 //Route::get('slider/data' , 'Admin\SliderController@getSlider')->name('slider.get');
 
@@ -29,7 +28,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
 
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
     Route::resource('slider' , 'SliderController');
-    Route::post('allSlider/update', 'SliderController@slupdate');
+    Route::post('allSlider/update', 'SliderController@update');
+    Route::get('allSlider/destroy/{id}', 'SliderController@destroy');
 
 
 });

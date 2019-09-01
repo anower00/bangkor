@@ -4,7 +4,6 @@
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
 @endpush
 
 @section('content')
@@ -38,8 +37,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add New Record</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <span id="form_result"></span>
@@ -74,13 +75,43 @@
                         <div class="form-group" align="center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
-                            <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="submit" name="action_button" id="action_button" class="btn btn-success" value="Add" />
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    {{--Start delete modal--}}
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete slider</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center" style="margin:0;">Are you sure you want to remove this slider?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{--End delete modal--}}
     @endsection
 
 @push('scripts')
@@ -137,7 +168,7 @@
             });
 
             $('#create_record').click(function(){
-                $('.modal-title').text("Add New Record");
+                $('.modal-title').text("Add New Slider");
                 $('#action_button').val("Add");
                 $('#action').val("Add");
                 $('#formModal').modal('show');
@@ -228,7 +259,7 @@
                         $('#store_image').html("<img src={{ URL::to('/') }}/slider/" + html.data.image + " width='70' class='img-thumbnail' />");
                         $('#store_image').append("<input type='hidden' name='hidden_image' value='"+html.data.image+"' />");
                         $('#hidden_id').val(html.data.id);
-                        $('.modal-title').text("Edit New Record");
+                        $('.modal-title').text("Edit Slider");
                         $('#action_button').val("Edit");
                         $('#action').val("Edit");
                         $('#formModal').modal('show');
@@ -241,6 +272,7 @@
             $(document).on('click', '.delete', function(){
                 user_id = $(this).attr('id');
                 $('#confirmModal').modal('show');
+                $('.modal-title').text("Delete Slider");
             });
 
             $('#ok_button').click(function(){

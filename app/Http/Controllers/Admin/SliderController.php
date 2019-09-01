@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Slider;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -122,7 +121,7 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function slupdate(Request $request)
+    public function update(Request $request)
     {
         $image_name = $request->hidden_image;
         $image = $request->file('image');
