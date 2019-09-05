@@ -31,5 +31,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
     Route::post('allSlider/update', 'SliderController@update');
     Route::get('allSlider/destroy/{id}', 'SliderController@destroy');
 
+    Route::resource('statistics' , 'StatisticsController');
 
 });

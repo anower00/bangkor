@@ -31,21 +31,8 @@ class SliderController extends Controller
                 ->make(true);
         }
         return view('admin.slider.index');
-
-//        $sliders = Slider::orderBy('id', 'DESC')->get();
-
-//        return view('admin.slider.index',compact('sliders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -86,17 +73,6 @@ class SliderController extends Controller
 
         return response()->json(['success' => 'Slider Added successfully.']);
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -182,11 +158,4 @@ class SliderController extends Controller
 
         $data->delete();
     }
-
-    /*public function getSlider()
-    {
-        $sliders = Slider::orderBy('id', 'DESC')->get();
-
-        return $sliders;
-    }*/
 }

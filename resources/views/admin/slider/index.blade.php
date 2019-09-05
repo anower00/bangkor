@@ -7,31 +7,39 @@
 @endpush
 
 @section('content')
-    <div class="container">
-        <br />
-        <h3 align="center">Slider</h3>
-        <br />
-        <div align="right">
-            <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Record</button>
-        </div>
-        <br />
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped" id="user_table">
-                <thead>
-                <tr>
-                    <th width="10%">Image</th>
-                    <th width="35%">Title</th>
-                    <th width="35%">Sub Title</th>
-                    <th width="35%">Description</th>
-                    <th width="30%">Action</th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-        <br />
-        <br />
-    </div>
 
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div >
+                            <button type="button" name="create_record" id="create_record" class="btn btn-primary">Create Record</button>
+                        </div>
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">All Slider</h4>
+                                <p class="card-category">Slider for the user view</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped" id="user_table">
+                                        <thead>
+                                        <tr>
+                                            <th width="10%">Image</th>
+                                            <th width="35%">Title</th>
+                                            <th width="35%">Sub Title</th>
+                                            <th width="35%">Description</th>
+                                            <th width="30%">Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div id="formModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
