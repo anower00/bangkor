@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Statistics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class StatisticsController extends Controller
 {
@@ -14,7 +16,9 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        //
+        $statistics = Statistics::all();
+
+        return view('admin.statistics.index',compact('statistics'));
     }
 
     /**
@@ -67,9 +71,17 @@ class StatisticsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+
+        $form_data = array(
+            'total_clients'       =>   $request->total_clients,
+        );
+
+        Statistics::whereId($request->id)->update($form_data);
+
+        return response()->json(['success' => 'Data is successfully updated']);
     }
 
     /**

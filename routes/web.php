@@ -33,4 +33,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
 
     Route::resource('statistics' , 'StatisticsController');
 
+    Route::post('static/update' , 'StatisticsController@update');
+
 });

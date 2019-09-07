@@ -15,7 +15,10 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('title');
+            $table->integer('total_clients');
+            $table->integer('clients_retained');
+            $table->integer('sale_volume');
+            $table->integer('client_referrals');
             $table->timestamps();
         });
     }

@@ -23,10 +23,10 @@
                     <p>Sliders</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
-                    <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
+            <li class="{{ Request::is('admin/statistics*') ? 'active':'' }}">
+                <a class="nav-link" href="{{ route('statistics.index') }}">
+                    <i class="material-icons">slideshow</i>
+                    <p>Statistics</p>
                 </a>
             </li>
             <li class="nav-item ">
