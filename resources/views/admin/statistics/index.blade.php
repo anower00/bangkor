@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title','Slider')
+@section('title','Statistics')
 
 @push('css')
 
 @endpush
 
 @section('content')
-    <input id="signup-token" name="_token" type="hidden" value="{{csrf_token()}}">
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+                    <div id="message"></div>
                     <div class="card">
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">Statistics</h4>
@@ -22,23 +22,17 @@
                                 <table class="table table-bordered table-striped" id="user_table">
                                     <thead>
                                     <tr>
-                                        <th width="10%">Total Clients</th>
-                                        <th width="35%">Title</th>
-                                        <th width="35%">Sub Title</th>
-                                        <th width="35%">Description</th>
+                                        <th width="25%">Total Clients</th>
+                                        <th width="25%">Clients Retained</th>
+                                        <th width="25%">Total Sale</th>
+                                        <th width="25%">Clients Referrals </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach( $statistics as $statistic)
-                                        <tr>
-                                            <td onblur="update({{ $statistic->id }})" id="{{ $statistic->id }}" contenteditable>{{ $statistic->total_clients }}</td>
-                                            <td contenteditable>{{ $statistic->clients_retained }}</td>
-                                            <td contenteditable>{{ $statistic->sale_volume }}</td>
-                                            <td contenteditable>{{ $statistic->client_referrals }}</td>
-                                        </tr>
-                                    @endforeach
+
                                     </tbody>
                                 </table>
+                                {{ csrf_field() }}
                             </div>
                         </div>
                     </div>
@@ -50,25 +44,60 @@
 
 @push('scripts')
     <script>
-        function update(id) {
-           var total_clients = $("#"+id).html();
 
-            console.log(total_clients);
+        $(document).ready(function(){
 
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "POST",
-                url:"static/update",
+            fetch_data();
 
-                dada:{
-                    total_clients:total_clients,
-                    id:id,
-                    _token: $('#signup-token').val()
-                },
-                dataType : 'html',
-            })
-        }
+            function fetch_data()
+            {
+                $.ajax({
+                    url:"/bangkorpulp/public/admin/statistics/fetch_data",
+                    dataType:"json",
+                    success:function(data)
+                    {
+                        var html = '';
+                        html += '<tr>';
+
+                        for(var count=0; count < data.length; count++)
+                        {
+                            html +='<tr>';
+                            html +='<td contenteditable class="column_name" data-column_name="total_clients" data-id="'+data[count].id+'">'+data[count].total_clients+'</td>';
+                            html += '<td contenteditable class="column_name" data-column_name="clients_retained" data-id="'+data[count].id+'">'+data[count].clients_retained+'</td>';
+                            html += '<td contenteditable class="column_name" data-column_name="sale_volume" data-id="'+data[count].id+'">'+data[count].sale_volume+'</td>';
+                            html += '<td contenteditable class="column_name" data-column_name="client_referrals" data-id="'+data[count].id+'">'+data[count].client_referrals+'</td>';
+                        }
+                        $('tbody').html(html);
+                    }
+                });
+            }
+
+            var _token = $('input[name="_token"]').val();
+
+
+            $(document).on('blur', '.column_name', function(){
+                var column_name = $(this).data("column_name");
+                var column_value = $(this).text();
+                var id = $(this).data("id");
+
+                if(column_value != '')
+                {
+                    $.ajax({
+                        url:"{{ route('statistics.update_data') }}",
+                        method:"POST",
+                        data:{column_name:column_name, column_value:column_value, id:id, _token:_token},
+                        success:function(data)
+                        {
+                            $('#message').html(data);
+                        }
+                    })
+                }
+                else
+                {
+                    $('#message').html("<div class='alert alert-danger'>Enter some value</div>");
+                }
+            });
+
+        });
     </script>
     @endpush

@@ -25,7 +25,7 @@
             </li>
             <li class="{{ Request::is('admin/statistics*') ? 'active':'' }}">
                 <a class="nav-link" href="{{ route('statistics.index') }}">
-                    <i class="material-icons">slideshow</i>
+                    <i class="material-icons">trending_up</i>
                     <p>Statistics</p>
                 </a>
             </li>

@@ -31,8 +31,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
     Route::post('allSlider/update', 'SliderController@update');
     Route::get('allSlider/destroy/{id}', 'SliderController@destroy');
 
-    Route::resource('statistics' , 'StatisticsController');
+    Route::get('statistics' , 'StatisticsController@index')->name('statistics.index');
+    Route::get('statistics/fetch_data', 'StatisticsController@fetch_data');
 
-    Route::post('static/update' , 'StatisticsController@update');
+    Route::post('statistics/update_data', 'StatisticsController@update_data')->name('statistics.update_data');
+
 
 });
