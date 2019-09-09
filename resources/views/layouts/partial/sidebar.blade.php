@@ -29,10 +29,10 @@
                     <p>Statistics</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./typography.html">
-                    <i class="material-icons">library_books</i>
-                    <p>Typography</p>
+            <li class="{{ Request::is('admin/images-upload*') ? 'active':'' }}">
+                <a class="nav-link" href="{{ route('gallery.index') }}">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>Statistics</p>
                 </a>
             </li>
             <li class="nav-item ">

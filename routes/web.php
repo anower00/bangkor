@@ -33,8 +33,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
 
     Route::get('statistics' , 'StatisticsController@index')->name('statistics.index');
     Route::get('statistics/fetch_data', 'StatisticsController@fetch_data');
-
     Route::post('statistics/update_data', 'StatisticsController@update_data')->name('statistics.update_data');
+
+    Route::get('images-upload', 'GalleryController@imagesUpload')->name('gallery.index');
+    Route::post('images-upload', 'GalleryController@imagesUploadPost')->name('images.upload');
 
 
 });

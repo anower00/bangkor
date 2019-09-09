@@ -59,7 +59,7 @@ class SliderController extends Controller
         $image = $request->file('image');
 
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        
+
         $image->move(public_path('slider'), $new_name);
 
         $form_data = array(
