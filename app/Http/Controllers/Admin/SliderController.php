@@ -156,6 +156,11 @@ class SliderController extends Controller
     {
         $data = Slider::findOrFail($id);
 
+        if (file_exists('slider/' . $data->image))
+        {
+            unlink('slider/' . $data->image);
+        }
+
         $data->delete();
     }
 }

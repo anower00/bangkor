@@ -5,8 +5,8 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Creative Tim
+        <a href="#" class="simple-text logo-normal">
+            RocketechIT Tim
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -25,14 +25,14 @@
             </li>
             <li class="{{ Request::is('admin/statistics*') ? 'active':'' }}">
                 <a class="nav-link" href="{{ route('statistics.index') }}">
-                    <i class="material-icons">trending_up</i>
+                    <i class="material-icons">assessment</i>
                     <p>Statistics</p>
                 </a>
             </li>
-            <li class="{{ Request::is('admin/images-upload*') ? 'active':'' }}">
+            <li class="{{ Request::is('admin/gallery*') ? 'active':'' }}">
                 <a class="nav-link" href="{{ route('gallery.index') }}">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Statistics</p>
+                    <i class="material-icons">add_photo_alternate</i>
+                    <p>Gallery</p>
                 </a>
             </li>
             <li class="nav-item ">
