@@ -3,85 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b990fff-9cd1-43d4-a72b-30ecdc43c9b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GalleryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247830.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247841.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247842.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247843.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247910.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247911.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247912.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680247913.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680254500.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680254960.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680256340.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680256710.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680257130.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680266280.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680266450.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery/15680268800.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1023431186.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1032362601.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1063593455.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1086454104.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/114064993.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1151345140.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1177364910.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1181551364.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1229913617.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1289016420.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1345046229.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1357447979.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1392081518.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1395800379.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1427810137.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1434991543.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1438506203.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1440861600.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1470224585.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1478161952.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/154261385.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1612663287.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1784609784.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1817272202.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1827471505.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1835148994.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/184251543.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/189840583.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/1930015680.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/2062780573.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/2066162913.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/2080932211.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/2096434658.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/289458942.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/358104742.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/367516727.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/425049532.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/427798278.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/439371092.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/468344112.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/532296368.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/543658524.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/546208101.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/669626657.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/680020720.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/683175956.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/68858834.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/694808461.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/722075231.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/77081724.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/782564443.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/862269666.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/904479898.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/948372228.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/955465219.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/962491091.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/965236087.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider/986280018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partial/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partial/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +17,7 @@
     <session id="663074230">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="1" />
@@ -116,7 +37,8 @@
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.65" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.69" value="1" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -125,7 +47,7 @@
           <entry key="Blade" value="37" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="3" />
-          <entry key="PHP" value="28" />
+          <entry key="PHP" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -143,52 +65,19 @@
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
-              <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+              <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GalleryController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="153">
+              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
               <folding>
                 <element signature="e#46#74#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/slider/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="282" column="56" selection-start-line="282" selection-start-column="56" selection-end-line="282" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding>
-                <element signature="e#1031#1050#0#HTML" expanded="true" />
-                <element signature="e#1369#1376#1#HTML" expanded="true" />
-                <element signature="e#4333#4354#0#HTML" expanded="true" />
-                <element signature="e#4174#4198#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partial/sidebar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -380,6 +269,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -476,7 +366,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -530,17 +419,18 @@
       <workItem from="1567917189419" duration="12156000" />
       <workItem from="1568004665843" duration="12546000" />
       <workItem from="1568181491342" duration="7963000" />
+      <workItem from="1568522389226" duration="2656000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162425000" />
+    <option name="totallyTimeSpent" value="165081000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22919819" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -611,9 +501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/slider/904479898.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/slider/904479898.jpg" />
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/partial/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -726,10 +614,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="38" selection-end-line="160" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GalleryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <element signature="e#46#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/slider/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="282" column="56" selection-start-line="282" selection-start-column="56" selection-end-line="282" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -740,40 +652,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="e#1031#1050#0#HTML" expanded="true" />
-            <element signature="e#1369#1376#1#HTML" expanded="true" />
-            <element signature="e#4333#4354#0#HTML" expanded="true" />
-            <element signature="e#4174#4198#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="38" selection-end-line="160" selection-end-column="38" />
-          <folding>
-            <element signature="e#46#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
-          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GalleryController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="153">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding>
             <element signature="e#46#74#0#PHP" expanded="true" />
           </folding>
