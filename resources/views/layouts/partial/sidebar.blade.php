@@ -35,10 +35,10 @@
                     <p>Gallery</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+            <li class="{{ Request::is('admin/news*') ? 'active':'' }}">
+                <a class="nav-link" href="{{ route('news.index') }}">
+                    <i class="material-icons">notifications</i>
+                    <p>News</p>
                 </a>
             </li>
             <li class="nav-item ">

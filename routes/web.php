@@ -39,5 +39,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
     Route::post('images-upload', 'GalleryController@imagesUploadPost')->name('images.upload');
     Route::delete('gallery_images/delete/{id}', 'GalleryController@destroy')->name('gallery_images.destroy');
 
+    Route::get('news', 'NewsController@index')->name('news.index');
+    Route::post('news/store', 'NewsController@store')->name('news.store');
 
 });
