@@ -10,7 +10,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+           {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-warning card-header-icon">
                         <div class="card-icon">
@@ -28,19 +28,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
-                            <i class="material-icons">store</i>
+                            <i class="material-icons">slideshow</i>
                         </div>
-                        <p class="card-category">Revenue</p>
-                        <h3 class="card-title">$34,245</h3>
+                        <p class="card-category">Total Slider</p>
+                        <h3 class="card-title">{{ $sliderCount }}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">date_range</i> Last 24 Hours
+                            {{--<i class="material-icons">date_range</i> Last 24 Hours--}}
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
-                            <i class="material-icons">info_outline</i>
+                            <i class="material-icons">image</i>
                         </div>
-                        <p class="card-category">Fixed Issues</p>
-                        <h3 class="card-title">75</h3>
+                        <p class="card-category">Total Image</p>
+                        <h3 class="card-title">{{ $galleryCount }}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">local_offer</i> Tracked from Github
+                            {{--<i class="material-icons">local_offer</i> Tracked from Github--}}
                         </div>
                     </div>
                 </div>
@@ -65,20 +65,20 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-info card-header-icon">
                         <div class="card-icon">
-                            <i class="fa fa-twitter"></i>
+                            <i class="material-icons"><img src="https://img.icons8.com/ios/24/000000/news.png"></i>
                         </div>
-                        <p class="card-category">Followers</p>
-                        <h3 class="card-title">+245</h3>
+                        <p class="card-category">Total News</p>
+                        <h3 class="card-title">{{ $newsCount }}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">update</i> Just Updated
+                            {{--<i class="material-icons">update</i> Just Updated--}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{--<div class="row">
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-success">
@@ -419,7 +419,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
     @endsection

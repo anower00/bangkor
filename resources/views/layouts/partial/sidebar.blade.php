@@ -31,40 +31,28 @@
             </li>
             <li class="{{ Request::is('admin/gallery*') ? 'active':'' }}">
                 <a class="nav-link" href="{{ route('gallery.index') }}">
-                    <i class="material-icons">add_photo_alternate</i>
+                    <i class="material-icons">image</i>
                     <p>Gallery</p>
                 </a>
             </li>
             <li class="{{ Request::is('admin/news*') ? 'active':'' }}">
                 <a class="nav-link" href="{{ route('news.index') }}">
-                    <i class="material-icons">notifications</i>
+                    <i ><img src="https://img.icons8.com/ios/24/000000/news.png"></i>
                     <p>News</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="">
-                    <i class="material-icons">location_ons</i>
-                    <p>Maps</p>
+                    <i class="material-icons">inventory</i>
+                    <p>Products</p>
                 </a>
             </li>
-            <li class="nav-item ">
+            {{--<li class="nav-item ">
                 <a class="nav-link" href="">
                     <i class="material-icons">notifications</i>
                     <p>Notifications</p>
                 </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="">
-                    <i class="material-icons">language</i>
-                    <p>RTL Support</p>
-                </a>
-            </li>
-            <li class="nav-item active-pro ">
-                <a class="nav-link" href="">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li>
+            </li>--}}
         </ul>
     </div>
 </div>

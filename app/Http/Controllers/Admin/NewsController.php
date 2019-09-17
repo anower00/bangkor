@@ -41,4 +41,13 @@ class NewsController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy($id)
+    {
+
+        News::find($id)->delete();
+
+        return redirect()->back();
+    }
+
 }

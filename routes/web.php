@@ -19,10 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::post('ajax-crud/update', 'AjaxCrudController@update')->name('ajax-crud.update');
-
-
-//Route::get('slider/data' , 'Admin\SliderController@getSlider')->name('slider.get');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],function (){
 
@@ -41,5 +37,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'admin'],funct
 
     Route::get('news', 'NewsController@index')->name('news.index');
     Route::post('news/store', 'NewsController@store')->name('news.store');
+    Route::delete('news/delete/{id}', 'NewsController@destroy')->name('news.destroy');
 
 });

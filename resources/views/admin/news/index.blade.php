@@ -55,8 +55,21 @@
                                                 <image class="img-responsive" src="{{$feed->link_image}}" style="height: 100px;"></image>
                                             </a>
                                         </td>
-                                        <td>
-                                            <a type="button" class="btn btn-danger">Delete</a>
+                                        <form method="post" id="delete-form-{{ $feed->id }}" action="{{ route('news.destroy' ,$feed->id) }}"
+                                              style="display: none">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                        <td><a class="btn btn-danger" style="cursor: pointer;" onclick="
+                                                if(confirm('Do You Want To Delete This News?'))
+                                                {
+                                                event.preventDefault();
+                                                document.getElementById('delete-form-{{ $feed->id }}').submit();
+                                                }
+                                                else {
+                                                event.preventDefault();
+                                                }
+                                                "><i class="fas fa-trash-alt action_check"></i>Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
