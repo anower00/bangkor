@@ -31,7 +31,7 @@
 			      <img class="img-responsive respon" src="img/slider1.jpg">
 			        <div class="text-box">
 			            <h2 class="wow slideInRight" data-wow-duration="2s">This is Obitope text</h2>
-			            <p class="wow slideInLeft" data-wow-duration="2s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
+			            <p class="wow slideInLeft" data-wow-duration="2s">xts. These are usually used when a text is required purely to fill a space. </p>
 			        </div>
 			    </div>
 			    <div class="carousel-item">
