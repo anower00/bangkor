@@ -263,7 +263,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container filter_gall" >
   <div class="filterDiv paper"><img src="img/product/cheiftain-289x300.png"></div>
   <div class="filterDiv paper"><img src="img/product/kinglogo.jpg"></div>
   <div class="filterDiv paper"><img src="img/product/Luxstar.png"></div>
@@ -290,7 +290,7 @@
            
             <div class="gallery__img-block  current">
                
-               <img src="{{asset('front_end/img/img_slider.jpg')}}" thumb-url="img/img_slider.jpg" class="">
+               <img src="{{asset('front_end/img/img_slider.jpg')}}" thumb-url="{{asset('front_end/img/img_slider.jpg')}}" class="">
             </div>
             <div class="gallery__img-block  ">
                 

@@ -232,6 +232,10 @@ height: 50px;
 }
 /*mission area end*/
 /*product area start*/
+
+.product{
+  height: 100vh;
+}
 .product_h2{
   text-align: center;
   padding: 40px;
@@ -244,6 +248,9 @@ height: 50px;
 }
 .col-md-3.btnr.pro_img {
     padding: 0;
+}
+.filter_gall{
+    height: 662px;
 }
 .pro_img{
     height: 220px;
@@ -322,13 +329,16 @@ text-shadow: 2px 3px #3e2424f2;
 }
 /*product area end*/
 /*2nd slider area start*/
-.plugin {
+/*.plugin {
   margin-right: 12px;
 }
 .plugin-a {
   right: 2px;
 }
+*/
+.second_slider_gallery{
 
+}
 .wrapper {
   display: inline-block;
   vertical-align: top;
