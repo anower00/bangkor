@@ -28,7 +28,7 @@
 		  <!-- The slideshow -->
 			<div class="carousel-inner">
 			    <div class="carousel-item active">
-			      <img class="img-responsive respon" src="img/slider1.jpg">
+			      <img class="img-responsive respon" src="{{ asset('front_end/img/slider1.jpg') }}">
 			        <div class="text-box">
 			            <h2 class="wow slideInRight" data-wow-duration="2s">This is Obitope text</h2>
 			            <p class="wow slideInLeft" data-wow-duration="2s">xts. These are usually used when a text is required purely to fill a space. </p>
@@ -42,7 +42,7 @@
 			        </div>
 			    </div>
 			    <div class="carousel-item">
-			      <img class="img-responsive respon" src="img/3.jpg">
+			      <img class="img-responsive respon" src="{{ asset('front_end/img/3.jpg') }}">
 			    <div class="text-box">
 			            <h2 class="wow slideInRight" data-wow-duration="4s">This is Airborne text</h2>
 			            <p class="wow slideInLeft" data-wow-duration="2s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
@@ -63,7 +63,7 @@
 <!-- navbar area start -->
 <div id="navbar" >
  <nav class="navbar navbar-expand-md  navbar-dark"  >
-  <a class="navbar-brand" href="#"><img class="logo_img" src="img/mainlogo.png"></a>
+  <a class="navbar-brand" href="#"><img class="logo_img" src="{{ asset('front_end/img/mainlogo.png')}}"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
   </button>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <div class="about_img1">
-                        <img src="img/10years.jpg">
+                        <img src="{{asset('front_end/img/10years.jpg')}}">
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
@@ -131,21 +131,21 @@
             <div class="row ">
                 <div class="col-xs-12 col-md-4">
                     <div class="about_text1">
-                    	<img src="img/idea.png">
+                    	<img src="{{asset('front_end/img/idea.png')}}">
                         <h4 class="about_h4">Knowledge</h4>
                         <p class="about_p1">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <div class="about_text1">
-                        <img src="img/deal.png">
+                        <img src="{{asset('front_end/img/deal.png')}}">
                         <h4 class="about_h4">Integrity</h4>
                         <p class="about_p1">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <div class="about_text1">
-                    	<img src="img/settings.png">
+                    	<img src="{{asset('front_end/img/settings.png')}}">
                     	<h4 class="about_h4"> Collaboration</h4>
                         <p class="about_p1">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
@@ -205,14 +205,14 @@
               <div class="row ">
                 <div class="col-xs-12 col-md-3">
                     <div class="mission_middle">
-                    	<img src="img/growth.jpg" class="respon">
+                    	<img src="{{asset('front_end/img/growth.jpg')}}" class="respon">
                         <h5 class="mission_h5">GROWTH STORY</h5>
                         <p class="middion_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-3">
                     <div class="mission_middle"> 
-                    <img src="img/vission.jpg" class="respon">                     
+                    <img src="{{asset('front_end/img/vission.jpg')}}" class="respon">                     
                         <h5 class="mission_h5">MISSION & VISION
                         </h5>                
                         <p class="middion_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
@@ -220,14 +220,14 @@
                 </div>
                 <div class="col-xs-12 col-md-3">
                     <div class="mission_middle">
-                    	<img src="img/quality.jpg" class="respon">
+                    	<img src="{{asset('front_end/img/quality.jpg')}}" class="respon">
                         <h5 class="mission_h5">QUALITY PROCESS</h5> 
                         <p class="middion_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-3">
                     <div class="mission_middle">    
-                    	<img src="img/future.jpg" class="respon">        
+                    	<img src="{{asset('front_end/img/future.jpg')}}" class="respon">        
                         <h5 class="mission_h5">FUTURE EXPENSION</h5>
                         <p class="middion_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     </div>
@@ -290,7 +290,7 @@
            
             <div class="gallery__img-block  current">
                
-               <img src="img/img_slider.jpg" thumb-url="img/img_slider.jpg" class="">
+               <img src="{{asset('front_end/img/img_slider.jpg')}}" thumb-url="img/img_slider.jpg" class="">
             </div>
             <div class="gallery__img-block  ">
                 
@@ -377,7 +377,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3 team_img">
-					<img class="img-responsive" src="img/ceo.png">
+					<img class="img-responsive" src="{{asset('front_end/img/ceo.png')}}">
 			</div>
 			<div class="col-md-3 team_text">
 				<h3>MD.SOBHAN AHMAD <span>CEO</span></h3>
@@ -388,7 +388,7 @@
 				<p>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</p>
 			</div>
 			<div class="col-md-3 team_img">
-				<img class="img-responsive" src="img/manager.png">
+				<img class="img-responsive" src="{{asset('front_end/img/manager.png')}}">
 			</div>
 		</div>
 		<div class="view_team">
