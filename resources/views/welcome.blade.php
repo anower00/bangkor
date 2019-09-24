@@ -27,27 +27,15 @@
 		  </ul>
 		  <!-- The slideshow -->
 			<div class="carousel-inner">
+                @foreach( $sliders as $slider)
 			    <div class="carousel-item active">
-			      <img class="img-responsive respon" src="{{ asset('front_end/img/slider1.jpg') }}">
-			        <div class="text-box">
-			            <h2 class="wow slideInRight" data-wow-duration="2s">This is Obitope text</h2>
-			            <p class="wow slideInLeft" data-wow-duration="2s">xts. These are usually used when a text is required purely to fill a space. </p>
-			        </div>
+			        <img class="img-responsive respon" src="{{ asset('slider/' . $slider->image) }}">
+                        <div class="text-box">
+                            <h2 class="wow slideInRight" data-wow-duration="2s">{{ $slider->title }}</h2>
+                            <p class="wow slideInLeft" data-wow-duration="2s">{{ $slider->sub_title }}</p>
+                        </div>
 			    </div>
-			    <div class="carousel-item">
-			      <img class="img-responsive respon" src="http://en.ddpai.com/webcommon/images/mix3/animation/bac-2.png" alt="Chicago">
-			    <div class="text-box">
-			            <h2 class="wow slideInRight" data-wow-duration="4s" >This is samuel text</h2>
-			            <p class="wow slideInLeft" data-wow-duration="4s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
-			        </div>
-			    </div>
-			    <div class="carousel-item">
-			      <img class="img-responsive respon" src="{{ asset('front_end/img/3.jpg') }}">
-			    <div class="text-box">
-			            <h2 class="wow slideInRight" data-wow-duration="4s">This is Airborne text</h2>
-			            <p class="wow slideInLeft" data-wow-duration="2s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
-			        </div>
-			    </div>
+                @endforeach
 		  	</div>
 		  <!-- Left and right controls -->
 		  <a class="carousel-control-prev" href="#slider-animation" data-slide="prev">
@@ -56,7 +44,7 @@
 		  <a class="carousel-control-next" href="#slider-animation" data-slide="next">
 		    <span class="carousel-control-next-icon"></span>
 		  </a>
-		</div>   
+		</div>
 </section>
 </div>
 <!-- header slider area end -->
@@ -160,11 +148,12 @@
         <div class="container">
         	<h1 class="stats_h1">Stats</h1>
         	<p class="stats_p">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original.</p>
+            @foreach($statistics as $state)
             <div class="row text-center">
                 <div class="col-xs-12 col-md-3">
                     <div class="counter">
                         <i class="stats-icon fa fa-user-friends "></i>
-                        <h2 class="timer count-title count-number">57000</h2>
+                        <h2 class="timer count-title count-number">{{ $state->total_clients }}</h2>
                         <div class="stats-line-black"></div>
                         <p class="stats-text">Happy Clients</p>
                     </div>
@@ -173,7 +162,7 @@
                     <div class="counter">
 
                         <i class="fas fa-laptop-code fa-2x stats-icon"></i>
-                        <h2 class="timer count-title count-number">1700
+                        <h2 class="timer count-title count-number">{{ $state->clients_retained }}
                         </h2>
                         <div class="stats-line-black"></div>
                         <p class="stats-text">Modern Templates</p>
@@ -182,7 +171,7 @@
                 <div class="col-xs-12 col-md-3">
                     <div class="counter">
                         <i class="fa fa-clock-o fa-2x stats-icon"></i>
-                        <h2 class="timer count-title count-number">90000</h2>
+                        <h2 class="timer count-title count-number">{{ $state->sale_volume }}</h2>
                         <div class="stats-line-black"></div>
                         <p class="stats-text">Followers</p>
                     </div>
@@ -190,12 +179,14 @@
                 <div class="col-xs-12 col-md-3">
                     <div class="counter">
                         <i class="fas fa-award fa-2x stats-icon"></i>
-                        <h2 class="timer count-title count-number">169</h2>
+                        <h2 class="timer count-title count-number">{{ $state->client_referrals }}</h2>
                         <div class="stats-line-black"></div>
                         <p class="stats-text">Awards</p>
                     </div>
                 </div>
             </div>
+
+                @endforeach
         </div>
     </section>
 <!-- stats area start -->
@@ -287,83 +278,11 @@
 <section id="second_slider_gallery"  class="second_slider_class">     
     <div class="wrapper">
         <div class="gallery">
-           
+           @foreach($galleries as $gallery)
             <div class="gallery__img-block  current">
-               
-               <img src="{{asset('front_end/img/img_slider.jpg')}}" thumb-url="{{asset('front_end/img/img_slider.jpg')}}" class="">
+               <img src="{{ asset('gallery/' . $gallery->gallery_image) }}" thumb-url="{{ asset('gallery/' . $gallery->gallery_image) }}" class="">
             </div>
-            <div class="gallery__img-block  ">
-                
-               <img src="img/banner4.jpg" thumb-url="img/banner4.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-               
-               <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-          
-               <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-                
-               <img src="https://unsplash.it/1200/600?image=541" thumb-url="https://unsplash.it/90/60?image=541" class="">
-            </div>
-             <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=542" thumb-url="https://unsplash.it/90/60?image=542" class="">
-            </div>
-             <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=543" thumb-url="https://unsplash.it/90/60?image=543" class="">
-            </div>
-             <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=544" thumb-url="https://unsplash.it/90/60?image=544" class="">
-            </div>
-             <div class="gallery__img-block  ">
-              
-                <img src="https://unsplash.it/1200/600?image=545" thumb-url="https://unsplash.it/90/60?image=545" class="">
-            </div>
-             <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=546" thumb-url="https://unsplash.it/90/60?image=546" class="">
-            </div>
-             <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=547" thumb-url="https://unsplash.it/90/60?image=547" class="">
-            </div>
-            <div class="gallery__img-block  ">
-              
-               <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-                
-               <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
-             <div class="gallery__img-block">
-                
-                <img src="https://unsplash.it/1200/600?image=548" thumb-url="https://unsplash.it/90/60?image=548" class="">
-            </div>
-             <div class="gallery__img-block  ">
-               
-                <img src="https://unsplash.it/1200/600?image=549" thumb-url="https://unsplash.it/90/60?image=549" class="">
-            </div>
-            <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=550" thumb-url="https://unsplash.it/90/60?image=550" class="">
-            </div>
-            <div class="gallery__img-block  ">
-                
-                <img src="https://unsplash.it/1200/600?image=551" thumb-url="https://unsplash.it/90/60?image=551" class="">
-            </div>
-             <div class="gallery__img-block  ">
-               
-               <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-                
-               <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
+         @endforeach
             <div class="view_all_gallery"><a href="#">View All ></a></div>
             <div class="gallery__controls">
             	
@@ -461,52 +380,24 @@
  
 <div id="mixedSlider">
                     <div class="MS-content">
+                        @foreach($newses as $news)
                         <div class="item">
+                            <a href="{{ $news->link }}">
                             <div class="imgTitle">
-                                <h5 class="blogTitle">Date: 30 Nov 2017</h5>
-                                <img src="img/news1.png" alt="" />
+                                <h5 class="blogTitle">{{ $news->created_at }}</h5>
+                                <img src="{{ $news->link_image }}" alt="" />
                             </div>
-                            <h6>Donec id dapibus</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                            <a href="#">Read More</a>
+                            <h6>{{ $news->link_title }}</h6>
+                            {{--<p>{{ $news->link_description }}</p>--}}
+                            <p>
+                                {{ str_limit(strip_tags($news->link_title), 80) }}
+                                @if (strlen(strip_tags($news->link_title)) > 80)
+                                    {{--<a style="color:#000;" href="#"><strong>read more</strong></a>--}}
+                                @endif
+                            </p>
+                             </a>
                         </div>
-                        <div class="item">
-                            <div class="imgTitle">
-                                <h5 class="blogTitle">Date: 30 November 2017</h5>
-                                <img src="img/news2.jpg" alt="" />
-                            </div>
-                            <h6>Donec id dapibus</h6>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="item">
-                            <div class="imgTitle">
-                                <h5 class="blogTitle">Date: 30 November 2017</h5>
-                                <img src="img/news3.jpg" alt="" />
-                            </div>
-                            <h6>Donec id dapibus</h6>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="item">
-                            <div class="imgTitle">
-                                <h5 class="blogTitle">Date: 30 November 2017</h5>
-                                <img src="img/news4.jpg" alt="" />
-                            </div>
-                            <h6>Donec id dapibus</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="item">
-                            <div class="imgTitle">
-                                <h5 class="blogTitle">Date: 30 November 2017</h5>
-                                <img src="img/news2.jpg" alt="" />
-                            </div>
-                            <h6>Donec id dapibus</h6>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi...</p>
-                            <a href="#">Read More</a>
-                        </div>
-                       
+                            @endforeach
                     </div>
                     <div class="MS-controls">
                         <button class="MS-left"><i class="fa fa-angle-left Le_Arrow" aria-hidden="true"></i></button>
@@ -542,7 +433,7 @@
 	<div class="container-fluid footer_bangkor">
 		<div class="row">
 			<div class="col-md-4 foot_left">
-				<img class="img-responsive" src="img/logofooter.png">
+				<img class="img-responsive" src="{{asset('front_end/img/logofooter.png')}}">
 			</div>
 			<div class="col-md-4 foot_mid">
 				<h5>CONTACT US</h5>
@@ -697,6 +588,7 @@ function myFunction() {
       this.parentNode.insertBefore(section, this);
     };
 </script>
+
 
 </body>
 </html>
