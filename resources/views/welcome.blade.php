@@ -418,51 +418,22 @@
 
     <div id="mixedSlider">
         <div class="MS-content">
-            <div class="item">
-                <div class="imgTitle">
-                    <h5 class="blogTitle">Date: 30 Nov 2017</h5>
-                    <img src="img/news1.png" alt="" />
+            @foreach($newses as $news)
+                <div class="item">
+                    <a href="{{ $news->link }}">
+                        <div class="imgTitle">
+                            <h5 class="blogTitle">{{ $news->created_at }}</h5>
+                            <img src="{{ $news->link_image }}" alt="" />
+                        </div>
+                        <h6>{{ $news->link_title }}</h6>
+                        <p>
+                            {{ str_limit(strip_tags($news->link_title), 80) }}
+                            @if (strlen(strip_tags($news->link_title)) > 80)
+                            @endif
+                        </p>
+                    </a>
                 </div>
-                <h6>Donec id dapibus</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="item">
-                <div class="imgTitle">
-                    <h5 class="blogTitle">Date: 30 November 2017</h5>
-                    <img src="img/news2.jpg" alt="" />
-                </div>
-                <h6>Donec id dapibus</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="item">
-                <div class="imgTitle">
-                    <h5 class="blogTitle">Date: 30 November 2017</h5>
-                    <img src="img/news3.jpg" alt="" />
-                </div>
-                <h6>Donec id dapibus</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="item">
-                <div class="imgTitle">
-                    <h5 class="blogTitle">Date: 30 November 2017</h5>
-                    <img src="img/news4.jpg" alt="" />
-                </div>
-                <h6>Donec id dapibus</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi....</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="item">
-                <div class="imgTitle">
-                    <h5 class="blogTitle">Date: 30 November 2017</h5>
-                    <img src="img/news2.jpg" alt="" />
-                </div>
-                <h6>Donec id dapibus</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu fringilla nisi...</p>
-                <a href="#">Read More</a>
-            </div>
+            @endforeach
 
         </div>
         <div class="MS-controls">
