@@ -186,42 +186,45 @@
     <div class="container">
         <h1 class="stats_h1">Stats</h1>
         <p class="stats_p">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original.</p>
-        <div class="row text-center">
-            <div class="col-xs-12 col-md-3">
-                <div class="counter">
-                    <i class="stats-icon fa fa-user-friends "></i>
-                    <h2 class="timer count-title count-number">57000</h2>
-                    <div class="stats-line-black"></div>
-                    <p class="stats-text">Happy Clients</p>
+        @foreach($statistics as $state)
+            <div class="row text-center">
+                <div class="col-xs-12 col-md-3">
+                    <div class="counter">
+                        <i class="stats-icon fa fa-user-friends "></i>
+                        <h2 class="timer count-title count-number">{{ $state->total_clients }}</h2>
+                        <div class="stats-line-black"></div>
+                        <p class="stats-text">Happy Clients</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-md-3">
-                <div class="counter">
+                <div class="col-xs-12 col-md-3">
+                    <div class="counter">
 
-                    <i class="fas fa-laptop-code fa-2x stats-icon"></i>
-                    <h2 class="timer count-title count-number">1700
-                    </h2>
-                    <div class="stats-line-black"></div>
-                    <p class="stats-text">Modern Templates</p>
+                        <i class="fas fa-laptop-code fa-2x stats-icon"></i>
+                        <h2 class="timer count-title count-number">{{ $state->clients_retained }}
+                        </h2>
+                        <div class="stats-line-black"></div>
+                        <p class="stats-text">Modern Templates</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="counter">
+                        <i class="fa fa-clock-o fa-2x stats-icon"></i>
+                        <h2 class="timer count-title count-number">{{ $state->sale_volume }}</h2>
+                        <div class="stats-line-black"></div>
+                        <p class="stats-text">Followers</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="counter">
+                        <i class="fas fa-award fa-2x stats-icon"></i>
+                        <h2 class="timer count-title count-number">{{ $state->client_referrals }}</h2>
+                        <div class="stats-line-black"></div>
+                        <p class="stats-text">Awards</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-                <div class="counter">
-                    <i class="fa fa-clock-o fa-2x stats-icon"></i>
-                    <h2 class="timer count-title count-number">90000</h2>
-                    <div class="stats-line-black"></div>
-                    <p class="stats-text">Followers</p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-3">
-                <div class="counter">
-                    <i class="fas fa-award fa-2x stats-icon"></i>
-                    <h2 class="timer count-title count-number">169</h2>
-                    <div class="stats-line-black"></div>
-                    <p class="stats-text">Awards</p>
-                </div>
-            </div>
-        </div>
+
+        @endforeach
     </div>
 </section>
 <!-- stats area start -->
@@ -313,83 +316,11 @@
 <section id="second_slider_gallery"  class="second_slider_class">
     <div class="wrapper">
         <div class="gallery">
-
-            <div class="gallery__img-block  current">
-
-                <img src="{{asset('front_end/img/img_slider.jpg')}}" thumb-url="{{asset('front_end/img/img_slider.jpg')}}" class="">
-            </div>
+            @foreach($galleries as $gallery)
             <div class="gallery__img-block  ">
-
-                <img src="img/banner4.jpg" thumb-url="img/banner4.jpg" class="">
+                <img src="{{ asset('gallery/' . $gallery->gallery_image) }}" thumb-url="{{ asset('gallery/' . $gallery->gallery_image) }}" class="">
             </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=541" thumb-url="https://unsplash.it/90/60?image=541" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=542" thumb-url="https://unsplash.it/90/60?image=542" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=543" thumb-url="https://unsplash.it/90/60?image=543" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=544" thumb-url="https://unsplash.it/90/60?image=544" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=545" thumb-url="https://unsplash.it/90/60?image=545" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=546" thumb-url="https://unsplash.it/90/60?image=546" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=547" thumb-url="https://unsplash.it/90/60?image=547" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
-            <div class="gallery__img-block">
-
-                <img src="https://unsplash.it/1200/600?image=548" thumb-url="https://unsplash.it/90/60?image=548" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=549" thumb-url="https://unsplash.it/90/60?image=549" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=550" thumb-url="https://unsplash.it/90/60?image=550" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="https://unsplash.it/1200/600?image=551" thumb-url="https://unsplash.it/90/60?image=551" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner1.jpg" thumb-url="img/banner1.jpg" class="">
-            </div>
-            <div class="gallery__img-block  ">
-
-                <img src="img/banner5.jpg" thumb-url="img/banner5.jpg" class="">
-            </div>
+            @endforeach
             <div class="view_all_gallery"><a href="#">View All ></a></div>
             <div class="gallery__controls">
 
