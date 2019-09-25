@@ -10,34 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
-    <script src="https://kit.fontawesome.com/beffab7788.js"></script>
+
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"><!-- groupslider -->
-    <script>
-        $(document).ready(function(){
-            // Add smooth scrolling to all links
-            $("a").on('click', function(event) {
 
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 1100, function(){
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-            });
-        });
-    </script>
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -53,27 +28,16 @@
             </ul>
             <!-- The slideshow -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="img-responsive respon" src="{{ asset('front_end/img/slider1.jpg') }}">
+            @foreach($sliders as $key => $slider)
+                <div class="carousel-item  {{$key == 0 ? 'active' : '' }}">
+                    <img class="img-responsive respon" src="{{url('slider', $slider->image)}}" >
                     <div class="text-box">
-                        <h2 class="wow slideInRight" data-wow-duration="2s">This is Obitope text</h2>
-                        <p class="wow slideInLeft" data-wow-duration="2s">xts. These are usually used when a text is required purely to fill a space. </p>
+                        <h2 class="wow slideInRight" data-wow-duration="2s">{{ $slider->title }}</h2>
+                        <p class="wow slideInLeft" data-wow-duration="2s">{{ $slider->sub_title }}</p>
                     </div>
+
                 </div>
-                <div class="carousel-item">
-                    <img class="img-responsive respon" src="http://en.ddpai.com/webcommon/images/mix3/animation/bac-2.png" alt="Chicago">
-                    <div class="text-box">
-                        <h2 class="wow slideInRight" data-wow-duration="4s" >This is samuel text</h2>
-                        <p class="wow slideInLeft" data-wow-duration="4s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="img-responsive respon" src="{{ asset('front_end/img/3.jpg') }}">
-                    <div class="text-box">
-                        <h2 class="wow slideInRight" data-wow-duration="4s">This is Airborne text</h2>
-                        <p class="wow slideInLeft" data-wow-duration="2s">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. </p>
-                    </div>
-                </div>
+             @endforeach
             </div>
             <!-- Left and right controls -->
             <a class="carousel-control-prev" href="#slider-animation" data-slide="prev">
@@ -83,6 +47,27 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
+
+       {{-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+                @foreach($sliders as $key => $slider)
+                    <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+                        <img src="{{url('slider', $slider->image)}}" class="d-block w-100"  alt="...">
+                    </div>
+                @endforeach
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button"  data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true">     </span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>--}}
     </section>
 </div>
 <!-- header slider area end -->
@@ -275,38 +260,38 @@
         <div class="row">
             <div class="col-md-3 btnr pro_img"  onclick="filterSelection('paper')">
                 <div class="after_text"><span class="text_fil">COMMERCIAL PRINTING</span></div>
-                <img  class="img-responsive product_img" src="img/product/paper.jpg">
+                <img  class="img-responsive product_img" src="{{asset('front_end/img/product/paper.jpg')}}">
             </div>
             <div class="col-md-3 btnr pro_img"  onclick="filterSelection('cards')">
                 <div class="after_text"><span class="text_fil">PLAYING CARD</span></div>
-                <img  class="img-responsive product_img" src="img/product/PlayingCard.jpg">
+                <img  class="img-responsive product_img" src="{{asset('front_end/img/product/PlayingCard.jpg')}}">
             </div>
             <div class="col-md-3 btnr pro_img"  onclick="filterSelection('boxs')">
                 <div class="after_text"><span class="text_fil">FOLDING BOX BOARD</span></div>
-                <img  class="img-responsive product_img" src="img/product/foldingbox.png">
+                <img  class="img-responsive product_img" src="{{asset('front_end/img/product/foldingbox.png')}}">
             </div>
             <div class="col-md-3 btnr pro_img"  onclick="filterSelection('all')">
                 <div class="after_text"><span class="text_fil">VIEW ALL</span></div>
-                <img  class="img-responsive product_img" src="img/product/red.jpg">
+                <img  class="img-responsive product_img" src="{{asset('front_end/img/product/red.jpg')}}">
             </div>
         </div>
     </div>
 
     <div class="container filter_gall" >
-        <div class="filterDiv paper"><img src="img/product/cheiftain-289x300.png"></div>
-        <div class="filterDiv paper"><img src="img/product/kinglogo.jpg"></div>
-        <div class="filterDiv paper"><img src="img/product/Luxstar.png"></div>
-        <div class="filterDiv boxs"><img src="img/product/navia.jpg"></div>
-        <div class="filterDiv paper cards"><img src="img/product/Ningbo_Fold_ProductImg.png"></div>
-        <div class="filterDiv boxs"><img src="img/product/Ningbo_Poker.png"></div>
-        <div class="filterDiv cards"><img src="img/product/Proxima_logo2.png"></div>
-        <div class="filterDiv cards"><img src="img/product/Zenith_logo.png"></div>
-        <div class="filterDiv boxs"><img src="img/product/Ningbo_Poker.png"></div>
-        <div class="filterDiv boxs cards"><img src="img/product/kinglogo.jpg"></div>
-        <div class="filterDiv boxs"><img src="img/product/Zenith_logo.png"></div>
-        <div class="filterDiv boxs"><img src="img/product/cheiftain-289x300.png"></div>
-        <div class="filterDiv cards"><img src="img/product/Ningbo_Poker.png"></div>
-        <div class="filterDiv boxs"><img src="img/product/Proxima_logo2.png"></div>
+        <div class="filterDiv paper"><img src="{{asset('front_end/img/product/cheiftain-289x300.png')}}"></div>
+        <div class="filterDiv paper"><img src="{{asset('front_end/img/product/kinglogo.jpg')}}"></div>
+        <div class="filterDiv paper"><img src="{{asset('front_end/img/product/Luxstar.png')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/navia.jpg')}}"></div>
+        <div class="filterDiv paper cards"><img src="{{asset('front_end/img/product/Ningbo_Fold_ProductImg.png')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/Ningbo_Poker.png')}}"></div>
+        <div class="filterDiv cards"><img src="{{asset('front_end/img/product/Proxima_logo2.png')}}"></div>
+        <div class="filterDiv cards"><img src="{{asset('front_end/img/product/Zenith_logo.png')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/Ningbo_Poker.png')}}"></div>
+        <div class="filterDiv boxs cards"><img src="{{asset('front_end/img/product/kinglogo.jpg')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/Zenith_logo.png')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/cheiftain-289x300.png')}}"></div>
+        <div class="filterDiv cards"><img src="{{asset('front_end/img/product/Ningbo_Poker.png')}}"></div>
+        <div class="filterDiv boxs"><img src="{{asset('front_end/img/product/Proxima_logo2.png')}}"></div>
     </div>
 
 
@@ -448,15 +433,18 @@
     <div class="row">
         <div class="col-md-6 contact_input_ar">
             <p class="con_p">REACH US</p>
-            <div class="mid_con">
-                <label>Name</label>
-                <input type="text">
-                <label>E-mail</label>
-                <input type="text">
-                <label>Message</label>
-                <input type="text">
-                <button type="button" class="btn pull-right submit">Submit</button>
-            </div>
+            <form method="POST" action="{{ url('/contact') }}">
+                @csrf
+                <div class="mid_con">
+                    <label>E-mail</label>
+                    <input type="text" id="email" name="email" required>
+                    <label>Subject</label>
+                    <input type="text" id="subject" name="subject">
+                    <label>Message</label>
+                    <input type="text" id="message" name="message">
+                    <input type="submit" class="btn pull-right submit" value="Submit">
+                </div>
+            </form>
         </div>
         <div class="col-md-6 maps_con">
             <iframe style="width: 100%;height: 500px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17192.285766869896!2d90.40271872865196!3d23.84720090224427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7ecc977b9db%3A0xad994f7126580218!2sDhaka%20Airport!5e0!3m2!1sen!2sbd!4v1568713548219!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -470,7 +458,7 @@
     <div class="container-fluid footer_bangkor">
         <div class="row">
             <div class="col-md-4 foot_left">
-                <img class="img-responsive" src="img/logofooter.png">
+                <img class="img-responsive" src="{{asset('front_end/img/logofooter.png')}}">
             </div>
             <div class="col-md-4 foot_mid">
                 <h5>CONTACT US</h5>
@@ -491,6 +479,33 @@
         </div>
     </div>
 </footer>
+<script>
+    $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 1100, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+<script src="https://kit.fontawesome.com/beffab7788.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 <script  src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -499,6 +514,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
 <!-- for 2nd slider -->
 <script src="{{ asset('front_end/dist/scripts/vit-gallery.js') }}"></script>
 

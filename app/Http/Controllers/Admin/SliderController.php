@@ -43,9 +43,6 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'title'    =>  'required',
-            'sub_title'     =>  'required',
-            'description'     =>  'required',
             'image'         =>  'required|image|max:2048'
         );
 
@@ -104,9 +101,6 @@ class SliderController extends Controller
         if($image != '')
         {
             $rules = array(
-                'title'    =>  'required',
-                'sub_title'     =>  'required',
-                'description'     =>  'required',
                 'image'         =>  'image|max:2048'
             );
             $error = Validator::make($request->all(), $rules);
@@ -121,9 +115,7 @@ class SliderController extends Controller
         else
         {
             $rules = array(
-                'title'    =>  'required',
-                'sub_title'     =>  'required',
-                'description'     =>  'required'
+
             );
 
             $error = Validator::make($request->all(), $rules);

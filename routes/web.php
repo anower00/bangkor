@@ -17,6 +17,7 @@
 
 
 Route::get('/', 'HomeController@index')->name('welcome');
+Route::post('/contact', 'MailController@sendeMail')->name('sendMail');
 
 Auth::routes();
 
