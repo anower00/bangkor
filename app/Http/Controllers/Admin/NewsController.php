@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class NewsController extends Controller
 {
@@ -39,6 +40,8 @@ class NewsController extends Controller
 
         $feed->save();
 
+        Alert::success('New Created Successfully', 'Created')->autoclose(3500);
+
         return redirect()->back();
     }
 
@@ -47,6 +50,7 @@ class NewsController extends Controller
 
         News::find($id)->delete();
 
+        alert()->info('News Deleted Successfully', 'Deleted')->autoclose(3500);
         return redirect()->back();
     }
 

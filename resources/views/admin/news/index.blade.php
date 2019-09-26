@@ -9,17 +9,6 @@
 
 @section('content')
 
-{{--<div class="upload_post">
-    <div class="post_text_edit pull-right">
-        <form method="post" action="">
-            @csrf
-            <div class="form-group">
-                <textarea class="form-control ckeditor" placeholder="body" name="body"></textarea>
-            </div>
-            <button type="submit" class="btn button_a_color">Save</button>
-        </form>
-    </div>
-</div>--}}
 
 <div class="content">
     <div class="container-fluid">
@@ -74,6 +63,8 @@
                                     </tr>
                                 @endforeach
                             </table>
+
+                            {{ $news->links() }}
                         </div>
                     </div>
                 </div>

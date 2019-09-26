@@ -36,6 +36,6 @@ class SendEmail extends Mailable
         $e_subject = $this->sub;
         $e_message = $this->mes;
 
-        return $this->view('sendmail',compact('e_message'))->subject($e_subject);
+        return $this->view('sendmail',compact('e_message','e_subject'));
     }
 }

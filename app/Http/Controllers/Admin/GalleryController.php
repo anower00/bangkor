@@ -46,6 +46,7 @@ class GalleryController extends Controller
         }
         $gallery->delete();
 
+        alert()->info('Gallery Image Deleted Successfully', 'Deleted')->autoclose(3500);
         return redirect()->back();
     }
 }

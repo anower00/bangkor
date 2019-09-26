@@ -98,5 +98,7 @@
 
         });
     </script>
+
+    @include('sweet::alert')
 </body>
 </html>

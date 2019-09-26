@@ -19,6 +19,13 @@
 <!-- header slider area start -->
 <div class="header" id="home" style="height: 90vh;">
     <section >
+
+        @if (Session::has('sweet_alert.alert'))
+            <script>
+                swal({!! Session::get('sweet_alert.alert') !!});
+            </script>
+        @endif
+
         <div id="slider-animation" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ul class="carousel-indicators">
@@ -616,6 +623,8 @@
         this.parentNode.insertBefore(section, this);
     };
 </script>
+
+@include('sweet::alert')
 
 </body>
 </html>
